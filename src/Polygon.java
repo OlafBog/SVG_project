@@ -5,6 +5,12 @@ public class Polygon {
         points=pointsArray;
     }
 
+    public Polygon(Polygon poly) {
+        this.points = new Point[poly.points.length];
+        for (int i = 0; i < poly.points.length; i++)
+            this.points[i] = new Point(poly.points[i].x, poly.points[i].y);
+    }
+
     public String ToSvg() {
         //<polygon points="100,10 150,190 50,190" style="fill:lime;stroke:purple;stroke-width:3" />
         StringBuilder svg = new StringBuilder("<polygon points=\"" + points[0].x + "," + points[0].y);

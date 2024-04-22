@@ -9,5 +9,8 @@ public class Main {
 
         Polygon pA = new Polygon(new Point[] {new Point(0, 0), new Point(10, 10), new Point(20, 30)});
         System.out.println(pA.ToSvg());
+
+        Polygon pB = new Polygon(pA);
+        System.out.println(pB.ToSvg());
     }
 }
