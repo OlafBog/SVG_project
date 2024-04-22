@@ -25,4 +25,14 @@ public class Segment {
     public String ToSvg() {
         return "<line x1=\""+start.x+"\" y1=\""+start.y+"\" x2=\""+end.x+"\" y2=\""+end.y+"\" />";
     }
+
+    public static Segment[] perpendicularSegment(Segment segment, Point point) {
+        double deltaX = segment.getEnd().x-segment.getStart().x;
+        double deltaY = segment.getEnd().y-segment.getStart().y;
+        Point vectorNorm = new Point(-deltaY,deltaX);
+        Segment[] segmentout = new Segment[2];
+        segmentout[0] = new Segment(point, new Point(point.x-deltaY, point.y+deltaX));
+        segmentout[1] = new Segment(point, new Point(point.x+deltaY, point.y-deltaX));
+        return segmentout;
+    }
 }
