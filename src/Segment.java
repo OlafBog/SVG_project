@@ -21,4 +21,8 @@ public class Segment {
     public double length() {
         return sqrt(pow(start.x - end.x,2) + pow(start.y - end.y,2));
     }
+
+    public String ToSvg() {
+        return "<line x1=\""+start.x+"\" y1=\""+start.y+"\" x2=\""+end.x+"\" y2=\""+end.y+"\" >";
+    }
 }
