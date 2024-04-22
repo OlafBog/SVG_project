@@ -1,14 +1,22 @@
 public class Polygon {
     private Point[] points;
+    Style style;
 
     public Polygon(Point[] pointsArray) {
         points=pointsArray;
+        this.style= new Style("none","black",1.0);
+    }
+
+    public Polygon(Point[] pointsArray, Style style) {
+        points=pointsArray;
+        this.style=style;
     }
 
     public Polygon(Polygon poly) {
         this.points = new Point[poly.points.length];
         for (int i = 0; i < poly.points.length; i++)
             this.points[i] = new Point(poly.points[i].x, poly.points[i].y);
+        this.style= new Style("none","black",1.0);
     }
 
     public String ToSvg() {
@@ -23,7 +31,11 @@ public class Polygon {
             svg.append(points[i].y);
         }
 
-        svg.append("\" />");
+        svg.append("\" ");
+
+        svg.append(style.ToSvg());
+
+        svg.append(" />");
         return svg.toString();
     }
 }
