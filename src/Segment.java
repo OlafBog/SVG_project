@@ -29,7 +29,14 @@ public class Segment {
     public static Segment[] perpendicularSegment(Segment segment, Point point) {
         double deltaX = segment.getEnd().x-segment.getStart().x;
         double deltaY = segment.getEnd().y-segment.getStart().y;
-        Point vectorNorm = new Point(-deltaY,deltaX);
+        Segment[] segmentout = new Segment[2];
+        segmentout[0] = new Segment(point, new Point(point.x-deltaY, point.y+deltaX));
+        segmentout[1] = new Segment(point, new Point(point.x+deltaY, point.y-deltaX));
+        return segmentout;
+    }
+    public static Segment[] perpendicularSegment(Segment segment, Point point,double lenghtOfSegment) {
+        double deltaX = segment.getEnd().x-segment.getStart().x;
+        double deltaY = segment.getEnd().y-segment.getStart().y;
         Segment[] segmentout = new Segment[2];
         segmentout[0] = new Segment(point, new Point(point.x-deltaY, point.y+deltaX));
         segmentout[1] = new Segment(point, new Point(point.x+deltaY, point.y-deltaX));
