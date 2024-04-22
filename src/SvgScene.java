@@ -31,7 +31,7 @@ public class SvgScene {
         svg.append("</html>");
 
         try {
-            File file = new File(path+".html");
+            File file = new File(path+"canvas.html");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(svg.toString());
