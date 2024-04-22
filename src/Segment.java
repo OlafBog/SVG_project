@@ -23,6 +23,6 @@ public class Segment {
     }
 
     public String ToSvg() {
-        return "<line x1=\""+start.x+"\" y1=\""+start.y+"\" x2=\""+end.x+"\" y2=\""+end.y+"\" >";
+        return "<line x1=\""+start.x+"\" y1=\""+start.y+"\" x2=\""+end.x+"\" y2=\""+end.y+"\" />";
     }
 }
