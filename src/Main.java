@@ -13,7 +13,12 @@ public class Main {
         Polygon pB = new Polygon(pA);
         System.out.println(pB.ToSvg());
 
-        Polygon pC = new Polygon(new Point[] {new Point(10, 10), new Point(60, 10), new Point(10, 60)},new Style("grey","blue",5.0));
+        Polygon pC = new Polygon(new Point[] {new Point(100, 100), new Point(160, 100), new Point(100, 160)},new Style("grey","blue",5.0));
         System.out.println(pC.ToSvg());
+
+        SvgScene scene = new SvgScene();
+        scene.addToScene(pA);
+        scene.addToScene(pC);
+        scene.save("Pobrane");
     }
 }
