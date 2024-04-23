@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SvgScene {
-    private ArrayList<Polygon> polygonList = new ArrayList<>();
+    private ArrayList<Shape> shapeList = new ArrayList<>();
 
-    public void addToScene(Polygon polygon) {
-        polygonList.add(polygon);
+    public void addToScene(Shape shape) {
+        shapeList.add(shape);
     }
 
     public void save(String path) {
@@ -21,8 +21,8 @@ public class SvgScene {
         svg.append("<body>\n");
         svg.append("<svg width=\"1000\" height=\"1000\">\n");
 
-        for (Polygon polygon : polygonList) {
-            svg.append(polygon.ToSvg());
+        for (Shape shape : shapeList) {
+            svg.append(shape.ToSvg());
             svg.append("\n");
         }
 

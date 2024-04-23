@@ -24,12 +24,15 @@ public class Main {
         System.out.println(sD[1].ToSvg());
         System.out.println();
 
-
+        Ellipse eA = new Ellipse(new Point(50,150),50);
+        Ellipse eB = new Ellipse(new Point(50,250),25,45);
 
         SvgScene scene = new SvgScene();
         scene.addToScene(pA);
         scene.addToScene(pC);
         scene.addToScene(pD);
+        scene.addToScene(eA);
+        scene.addToScene(eB);
         scene.save("tu");
     }
 
