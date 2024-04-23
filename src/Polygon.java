@@ -1,22 +1,21 @@
-public class Polygon {
+public class Polygon extends Shape {
     private Point[] points;
-    Style style;
 
     public Polygon(Point[] pointsArray) {
+        super(new Style("none","black",1.0));
         points=pointsArray;
-        this.style= new Style("none","black",1.0);
     }
 
     public Polygon(Point[] pointsArray, Style style) {
+        super(style);
         points=pointsArray;
-        this.style=style;
     }
 
     public Polygon(Polygon poly) {
+        super(new Style("none","black",1.0));
         this.points = new Point[poly.points.length];
         for (int i = 0; i < poly.points.length; i++)
             this.points[i] = new Point(poly.points[i].x, poly.points[i].y);
-        this.style= new Style("none","black",1.0);
     }
 
     public String ToSvg() {

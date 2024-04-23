@@ -18,6 +18,14 @@ public class Main {
 
         Polygon pD = sqare(new Segment(new Point(100,0),new Point(140,60)),new Style("none","red",5.0));
 
+        Segment sC = new Segment(new Point(0,0),new Point(100,100));
+        Segment[] sD = Segment.perpendicularSegment(sC,new Point(110,110),50.0);
+        System.out.println(sD[0].ToSvg());
+        System.out.println(sD[1].ToSvg());
+        System.out.println();
+
+
+
         SvgScene scene = new SvgScene();
         scene.addToScene(pA);
         scene.addToScene(pC);

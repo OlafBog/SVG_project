@@ -27,19 +27,22 @@ public class Segment {
     }
 
     public static Segment[] perpendicularSegment(Segment segment, Point point) {
-        double deltaX = segment.getEnd().x-segment.getStart().x;
-        double deltaY = segment.getEnd().y-segment.getStart().y;
-        Segment[] segmentout = new Segment[2];
-        segmentout[0] = new Segment(point, new Point(point.x-deltaY, point.y+deltaX));
-        segmentout[1] = new Segment(point, new Point(point.x+deltaY, point.y-deltaX));
-        return segmentout;
+        Point delta = new Point(segment.getEnd().x-segment.getStart().x, segment.getEnd().y-segment.getStart().y);
+        Segment[] segmentOut = new Segment[2];
+        segmentOut[0] = new Segment(point, new Point(point.x-delta.y, point.y+delta.x));
+        segmentOut[1] = new Segment(point, new Point(point.x+delta.y, point.y-delta.x));
+        return segmentOut;
     }
     public static Segment[] perpendicularSegment(Segment segment, Point point,double lenghtOfSegment) {
-        double deltaX = segment.getEnd().x-segment.getStart().x;
-        double deltaY = segment.getEnd().y-segment.getStart().y;
-        Segment[] segmentout = new Segment[2];
-        segmentout[0] = new Segment(point, new Point(point.x-deltaY, point.y+deltaX));
-        segmentout[1] = new Segment(point, new Point(point.x+deltaY, point.y-deltaX));
-        return segmentout;
+        Point vec = new Point(segment.getEnd().x-segment.getStart().x, segment.getEnd().y-segment.getStart().y);
+
+        double scale = lenghtOfSegment / segment.length();
+        Point vecNor = new Point(vec.x*scale,vec.y*scale);
+        Segment newSegment = new Segment(segment.getStart(),new Point(segment.getStart().x+vecNor.x,segment.getStart().y+vecNor.y));
+        Point delta = new Point(newSegment.getEnd().x-newSegment.getStart().x, newSegment.getEnd().y-newSegment.getStart().y);
+        Segment[] segmentOut = new Segment[2];
+        segmentOut[0] = new Segment(point, new Point(point.x-delta.y, point.y+delta.x));
+        segmentOut[1] = new Segment(point, new Point(point.x+delta.y, point.y-delta.x));
+        return segmentOut;
     }
 }
