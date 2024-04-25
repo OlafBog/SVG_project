@@ -8,13 +8,13 @@ public class Main {
         System.out.println();
 
         Polygon pA = new Polygon(new Vec2[] {new Vec2(0, 0), new Vec2(50, 50), new Vec2(50, 30)});
-        System.out.println(pA.ToSvg());
+        System.out.println(pA.ToSvg(""));
 
         Polygon pB = new Polygon(pA);
-        System.out.println(pB.ToSvg());
+        System.out.println(pB.ToSvg(""));
 
         Polygon pC = new Polygon(new Vec2[] {new Vec2(100, 100), new Vec2(160, 100), new Vec2(100, 160)},new Style("grey","blue",5.0));
-        System.out.println(pC.ToSvg());
+        System.out.println(pC.ToSvg(""));
 
         Polygon pD = sqare(new Segment(new Vec2(100,0),new Vec2(140,60)),new Style("none","red",5.0));
 
@@ -26,6 +26,9 @@ public class Main {
 
         Ellipse eA = new Ellipse(new Vec2(50,150),50);
         Ellipse eB = new Ellipse(new Vec2(50,250),25,45);
+
+        SolidFilledPolygon sfpA = new SolidFilledPolygon("green",new Vec2[]{new Vec2(220,10),new Vec2(280,40),new Vec2(230,80)});
+        System.out.println(sfpA.ToSvg(""));
 
         SvgScene scene = new SvgScene();
         scene.addToScene(pA);

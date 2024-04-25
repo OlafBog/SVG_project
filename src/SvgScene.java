@@ -22,7 +22,7 @@ public class SvgScene {
         svg.append("<svg width=\"1000\" height=\"1000\">\n");
 
         for (Shape shape : shapeList) {
-            svg.append(shape.ToSvg());
+            svg.append(shape.ToSvg(""));
             svg.append("\n");
         }
 

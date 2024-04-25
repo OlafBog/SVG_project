@@ -18,22 +18,16 @@ public class Polygon implements Shape {
             this.vec2s[i] = new Vec2(poly.vec2s[i].x, poly.vec2s[i].y);
     }
 
-    public String ToSvg() {
-        StringBuilder svg = new StringBuilder("<polygon points=\"" + vec2s[0].x + "," + vec2s[0].y);
+    public String ToSvg(String parameter) {
+        StringBuilder stringPoints = new StringBuilder();
 
-        for(int i = 1; i< vec2s.length; i++)
-        {
-            svg.append(" ");
-            svg.append(vec2s[i].x);
-            svg.append(",");
-            svg.append(vec2s[i].y);
+        for (Vec2 vec2 : vec2s) {
+            stringPoints.append(vec2.x);
+            stringPoints.append(",");
+            stringPoints.append(vec2.y);
+            stringPoints.append(" ");
         }
 
-        svg.append("\" ");
-
-        //svg.append(style.ToSvg());
-
-        svg.append(" />");
-        return svg.toString();
+        return String.format("<polygon points=\"%s\" %s />",stringPoints.toString(),parameter);
     }
 }

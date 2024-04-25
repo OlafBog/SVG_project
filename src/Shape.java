@@ -1,4 +1,3 @@
 public abstract interface Shape {
-
-    abstract String ToSvg();
+    abstract String ToSvg(String parameter);
 }
