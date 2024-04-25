@@ -27,7 +27,6 @@ public class Ellipse implements Shape {
         ry =r;
     }
     public String ToSvg(String parameter) {
-        //<ellipse cx="120" cy="80" rx="100" ry="50" style="fill:yellow;stroke:green;stroke-width:3" />
-        return "<ellipse cx=\""+center.x+"\" cy=\""+center.y+"\" "+ "rx=\""+rx+"\" ry=\""+ry+"\" "/*+style.ToSvg()*/+" />";
+        return "<ellipse cx=\""+center.x+"\" cy=\""+center.y+"\" "+ "rx=\""+rx+"\" ry=\""+ry+"\" "+parameter+" />";
     }
 }

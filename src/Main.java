@@ -37,8 +37,13 @@ public class Main {
         scene.addToScene(eA);
         scene.addToScene(eB);
         scene.save("tu");
-    }
 
+        SolidFillShapeDecorator sfsdA = new SolidFillShapeDecorator(new Polygon(new Vec2[] {new Vec2(310,20),new Vec2(350,70),new Vec2(340,50)}),"purple");
+        SolidFillShapeDecorator sfsdB = new SolidFillShapeDecorator(new Ellipse(new Vec2(350,150),35),"purple");
+
+        System.out.println(sfsdA.ToSvg(""));
+        System.out.println(sfsdB.ToSvg(""));
+    }
     public static Polygon sqare(Segment segment, Style style) {
         Vec2 s = new Vec2((segment.getStart().x+segment.getEnd().x)/2,(segment.getStart().y+segment.getEnd().y)/2);
         Segment v = new Segment(segment.getStart(),s);
