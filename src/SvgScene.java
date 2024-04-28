@@ -5,7 +5,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SvgScene {
+    private static SvgScene svgScene = null;
     private ArrayList<Shape> shapeList = new ArrayList<>();
+
+    public SvgScene() {
+    }
+
+    public static SvgScene getInstance() {
+        if (svgScene == null) {
+            svgScene = new SvgScene();
+        }
+        return svgScene;
+    }
 
     public void addToScene(Shape shape) {
         shapeList.add(shape);
