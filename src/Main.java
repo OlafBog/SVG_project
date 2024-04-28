@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 public class Main {
     public static void main(String[] args) {
         Segment sA = new Segment(new Vec2(0,0), new Vec2(100,50));
@@ -52,7 +54,25 @@ public class Main {
 
         System.out.println(ssdA.ToSvg(""));
         System.out.println(ssdB.ToSvg(""));
+
+        Polygon pE = new Polygon(new Vec2[]{new Vec2(110,110),new Vec2(190,110),new Vec2(190,190),new Vec2(110,190)});
+
+        TransformationDecorator tdA = new TransformationDecorator(pE);
+        tdA.builder.TransformTranslate(new Vec2(20,20));
+        tdA = tdA.builder.build();
+        System.out.println(tdA.ToSvg(""));
+
+        TransformationDecorator tdB = new TransformationDecorator(pE);
+        tdB.builder.TransformRotate(60,new Vec2(170,170));
+        tdB = tdB.builder.build();
+        System.out.println(tdB.ToSvg(""));
+
+        TransformationDecorator tdC = new TransformationDecorator(pE);
+        tdC.builder.TransformScale(new Vec2(2,2));
+        tdC = tdC.builder.build();
+        System.out.println(tdC.ToSvg(""));
     }
+
     public static Polygon sqare(Segment segment, Style style) {
         Vec2 s = new Vec2((segment.getStart().x+segment.getEnd().x)/2,(segment.getStart().y+segment.getEnd().y)/2);
         Segment v = new Segment(segment.getStart(),s);
