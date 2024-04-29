@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class SvgScene {
     private static SvgScene svgScene = null;
+    ArrayList<String> defs = new ArrayList<>();
     private ArrayList<Shape> shapeList = new ArrayList<>();
 
     public SvgScene() {
@@ -18,6 +19,9 @@ public class SvgScene {
         return svgScene;
     }
 
+    public  void addDef(String def) {
+        defs.add(def);
+    }
     public void addToScene(Shape shape) {
         shapeList.add(shape);
     }
@@ -34,6 +38,11 @@ public class SvgScene {
 
         for (Shape shape : shapeList) {
             svg.append(shape.ToSvg(""));
+            svg.append("\n");
+        }
+
+        for (String def : defs) {
+            svg.append(def);
             svg.append("\n");
         }
 
